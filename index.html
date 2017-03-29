@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mocking</title>
+    <title>Unit Tests vs. Integration Tests</title>
     <meta charset="utf-8">
     <style>
       body { font-family: 'arial'; }
@@ -11,6 +11,8 @@
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
       .img { height: 80%; background-size: contain; background-repeat: no-repeat; }
       .remark-slide-content {background-color: darkgray}
+      .attribution { font-style: italic; color: #444444 }
+      .overflowing h2 { position: absolute; top: 275px; left: 100px; width: 100%; }
     </style>
   </head>
   <body>
@@ -18,32 +20,170 @@
 
 class: center, middle
 
-# Mocking
+## Unit Tests and Integration Tests
+<video height="200" autoplay loop>
+  <source src="res/ZeroIntegrationTests.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+<div class="attribution">Two unit tests, zero integration tests <br/> ~ /u/mcjiggerlog</div>
 
 ---
 
-# Agenda
+class: center, middle
 
-1. Why do we mock?
-2. Mocks vs. Stubs vs. Fakes
-3. Mockable Code
-4. Mocks – How do they work?
-5. Testing with mocks
-
----
-
-# Why do we mock?
-<div class="img" style="background-image: url(whymock.png);"/>
-
----
-
-# Mocks vs. Stubs vs. Fakes
-<div class="img" style="background-image: url(mockstubfake.png);"/>
+## What are unit tests and integration tests?
 
 ???
-1. RefactorMePlz
-2. MockingManually
-3. RealMocking
+
+We need common verbiage, for ourselves, our tools, and the larger internet
+
+---
+
+class: center, middle
+
+## Why do we test, anyway? 
+
+---
+
+class: center, middle
+
+## 'Cause we mess stuff up sometimes
+
+---
+
+class: center, middle
+
+## We want to find out quick
+
+---
+
+class: center, middle
+
+## "Everybody has a testing environment. Some people are lucky enough enough to have a totally separate environment to run production in."
+<div class="attribution">~ Michael Stahnke, Puppet</div>
+
+---
+
+class: center, middle
+
+## What kinda stuff do we mess up?
+
+???
+
+2 things
+
+---
+
+class: center, middle
+
+## Sometimes I'm bad at wodrs
+
+---
+
+class: center, middle, overflowing
+
+## Formatting is also sometimes difficult
+
+---
+
+class: center, middle
+
+## And I'm bad at math sometimes
+
+---
+
+class: center, middle
+
+## Different problems should have different solutions
+
+???
+
+Let's talk about why
+
+---
+
+class: center, middle
+
+## Automation is good
+
+---
+
+class: center, middle
+
+## How can we test logic?
+
+???
+
+Easy, that's a unit test.
+We can just run code, we don't need databases or servers or networks or anything.
+
+---
+
+class: center, middle
+
+## How can we test data?
+
+???
+ 
+Well that might be easy, or it might not
+But now you need a database, or a service, or a library, or a system
+That's why we call these things integration tests
+How hard is it to set that stuff up? How hard is it to set that stuff up automatically?
+
+---
+
+class: center, middle
+
+## How can we test our UI?
+
+???
+
+A buddy of mine one made a special USB-controlled harness to physically rotate a phone, for testing
+
+---
+
+class: center, middle
+
+## When we're testing data, it's an INTEGRATION test
+
+???
+
+We have to set stuff up, but we can still automate them
+
+---
+
+class: center, middle
+
+## When we're testing logic, it's a UNIT test
+
+???
+
+We're testing ONLY logic
+They're *fast*, repeatable, small
+
+---
+
+class: center, middle
+
+## #1 Question - what am I testing?
+
+---
+
+class: center, middle
+
+## Nearly all software is logic
+
+[testing-pyramid.jpg]
+
+???
+
+This is why unit tests are all the rage now
+
+---
+
+class: center, middle
+
+So next time you're considering how to tackle the testing of something, I'd encourage thinking about the broader question - what am I checking for, and what's the best way to check for that?
 
     </textarea>
     <script src="dep/remark-latest.min.js">

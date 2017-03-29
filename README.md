@@ -1,9 +1,7 @@
-# mocking-talk
-A brief talk on mocking, with remarkjs slides and .NET samples
+# Unit Tests vs. Integration Tests - why and when
+A lightning talk on the different classifications of testing
+* Why do we need them?
+* When should you employ them?
+* When should you *not* employ them?
 
-Open index.html for the slides - built using remark.js
-
-The sample projects are designed to fill out the agenda items that don't have slides - 
-the first is a common bad starting point to use as a refactoring example. 
-The second example is designed to show how mocks work under-the-hood... "how would we do this without a library?"
-The third example is designed to showcase NSubstitute, as well as quick looks into Moq and Autofixture
+To view, just open index.html in a browser
