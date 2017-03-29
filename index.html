@@ -9,7 +9,7 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .img { height: 80%; background-size: contain; background-repeat: no-repeat; }
+      .img { height: 60%; width: 60%; background-size: contain; background-repeat: no-repeat; margin-left: auto; margin-right: auto; }
       .remark-slide-content {background-color: darkgray}
       .attribution { font-style: italic; color: #444444 }
       .overflowing h2 { position: absolute; top: 275px; left: 100px; width: 100%; }
@@ -106,16 +106,18 @@ class: center, middle
 
 ## Automation is good
 
+???
+Not always the right tool, but we should try to steer this direction when we can
+
 ---
 
 class: center, middle
 
-## How can we test logic?
+## How do we test logic?
 
 ???
-
-Easy, that's a unit test.
 We can just run code, we don't need databases or servers or networks or anything.
+Easy to automate.
 
 ---
 
@@ -127,8 +129,6 @@ class: center, middle
  
 Well that might be easy, or it might not
 But now you need a database, or a service, or a library, or a system
-That's why we call these things integration tests
-How hard is it to set that stuff up? How hard is it to set that stuff up automatically?
 
 ---
 
@@ -137,8 +137,14 @@ class: center, middle
 ## How can we test our UI?
 
 ???
-
+Not all automation is created equal
 A buddy of mine one made a special USB-controlled harness to physically rotate a phone, for testing
+
+---
+
+class: center, middle
+
+## Let's use some wodrs
 
 ---
 
@@ -165,15 +171,15 @@ They're *fast*, repeatable, small
 
 class: center, middle
 
-## #1 Question - what am I testing?
+## The #1 Question - what am I testing?
 
 ---
 
 class: center, middle
 
 ## Nearly all software is logic
+<div class="img" style="background-image: url(res/testingpyramid.png);"/>
 
-[testing-pyramid.jpg]
 
 ???
 
@@ -183,7 +189,15 @@ This is why unit tests are all the rage now
 
 class: center, middle
 
-So next time you're considering how to tackle the testing of something, I'd encourage thinking about the broader question - what am I checking for, and what's the best way to check for that?
+## What am I testing?
+
+## What's the best technique for that?
+
+---
+
+class: center, middle
+
+## Thanks!
 
     </textarea>
     <script src="dep/remark-latest.min.js">
