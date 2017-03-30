@@ -26,7 +26,12 @@ class: center, middle
 Your browser does not support the video tag.
 </video>
 <div class="attribution">Two unit tests, zero integration tests <br/> ~ /u/mcjiggerlog</div>
+???
+My name is Tyler
 
+I'm a DevOps consultant
+
+And I'm here to talk about the distinction between unit tests and integration tests
 ---
 
 class: center, middle
@@ -34,8 +39,11 @@ class: center, middle
 ## What are unit tests and integration tests?
 
 ???
+I wanted to do this talk because I see a lot of people who are unsure of the difference
 
 We need common verbiage, for ourselves, our tools, and the larger internet
+
+Let's start at the basic level...
 
 ---
 
@@ -55,13 +63,19 @@ class: center, middle
 
 ## We want to find out quick
 
+???
+Bugs get more expensive the longer they're left alive
+
 ---
 
 class: center, middle
 
 ## "Everybody has a testing environment. Some people are lucky enough enough to have a totally separate environment to run production in."
 <div class="attribution">~ Michael Stahnke, Puppet</div>
+???
+I like this because it drives home that all software **will** be tested - the only thing we control is when, where, and how
 
+So now lets think about...
 ---
 
 class: center, middle
@@ -77,18 +91,31 @@ class: center, middle
 class: center, middle
 
 ## Sometimes I'm bad at wodrs
+???
+
+- Bad DB connections
+- Bad unit of measurement assumptions
+- For those who were looking for it, you saw even puppet engineers will miss things
+- I call these DATA BUGs
 
 ---
 
 class: center, middle, overflowing
 
-## Formatting is also sometimes difficult
+## User interfaces are also sometimes difficult
+???
+- Many devices
+- Many browsers
+- I call these UI BUGs
 
 ---
 
 class: center, middle
 
 ## And I'm bad at math sometimes
+???
+- Code is complicated. It gets blurry after a few hours
+- I call these LOGIC BUGs
 
 ---
 
@@ -97,8 +124,7 @@ class: center, middle
 ## Different problems should have different solutions
 
 ???
-
-Let's talk about why
+Different bugs spawn at different times, and manifest at different times
 
 ---
 
@@ -107,7 +133,11 @@ class: center, middle
 ## Automation is good
 
 ???
-Not always the right tool, but we should try to steer this direction when we can
+We want to get bugs faster, automation is our friend there
+
+But it's also hard
+
+And not all automation is created equal
 
 ---
 
@@ -116,8 +146,8 @@ class: center, middle
 ## How do we test logic?
 
 ???
-We can just run code, we don't need databases or servers or networks or anything.
-Easy to automate.
+- We can just run code, we don't need databases or servers or networks or anything.
+- Easy to automate.
 
 ---
 
@@ -127,8 +157,8 @@ class: center, middle
 
 ???
  
-Well that might be easy, or it might not
-But now you need a database, or a service, or a library, or a system
+- Well that might be easy, or it might not, you're still gonna use inputs and outputs
+- But now you need a database, or a service, or a library, or a system
 
 ---
 
@@ -137,41 +167,45 @@ class: center, middle
 ## How can we test our UI?
 
 ???
-Not all automation is created equal
-A buddy of mine one made a special USB-controlled harness to physically rotate a phone, for testing
+- Hard to write and debug
+- Lots of false positives/negatives
+- Not all automation is created equal
 
 ---
 
 class: center, middle
 
 ## Let's use some wodrs
+???
+We've talked a **lot** about concepts, let's bring it back to words
 
 ---
 
 class: center, middle
 
-## When we're testing data, it's an INTEGRATION test
+## When we're testing data, it's an *integration* test
 
 ???
-
-We have to set stuff up, but we can still automate them
+When can we do these? *Only after everything is set up*
 
 ---
 
 class: center, middle
 
-## When we're testing logic, it's a UNIT test
+## When we're testing logic, it's a *unit* test
 
 ???
-
-We're testing ONLY logic
-They're *fast*, repeatable, small
+- We're testing CODE
+- When can we do these? *Immediately*
+- Bugs die fast
 
 ---
 
 class: center, middle
 
 ## The #1 Question - what am I testing?
+???
+When I look at a feature we're going to implement, I think about what needs testing, and how that should be done.
 
 ---
 
@@ -182,8 +216,8 @@ class: center, middle
 
 
 ???
-
-This is why unit tests are all the rage now
+- All of our work contains code, so I need to hunt for logic bugs
+- Only some of our code contains integrations, so I only sometimes hunt for data bugs
 
 ---
 
@@ -192,6 +226,8 @@ class: center, middle
 ## What am I testing?
 
 ## What's the best technique for that?
+???
+My goal for today: hopefully these questions are resting in your head
 
 ---
 
@@ -203,7 +239,11 @@ class: center, middle
     <script src="dep/remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+        slideNumberFormat: function (current, total) {
+          return '';
+        }
+      });
     </script>
   </body>
 </html>
